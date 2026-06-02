@@ -1,0 +1,8 @@
+{
+  "name": "descrybe-legal-research",
+  "version": "0.1.0",
+  "description": "Legal research workflows powered by Descrybe Legal Engine for research roadmaps, authority finding, and citation or quote auditing.",
+  "author": {
+    "name": "Descrybe"
+  }
+}
