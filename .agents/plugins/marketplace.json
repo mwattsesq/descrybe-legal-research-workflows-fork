@@ -1,0 +1,20 @@
+{
+  "name": "descrybe-legal-research-workflows",
+  "interface": {
+    "displayName": "Descrybe Legal Research Workflows"
+  },
+  "plugins": [
+    {
+      "name": "descrybe-legal-research",
+      "source": {
+        "source": "local",
+        "path": "./descrybe-legal-research-openai"
+      },
+      "policy": {
+        "installation": "AVAILABLE",
+        "authentication": "ON_INSTALL"
+      },
+      "category": "Productivity"
+    }
+  ]
+}

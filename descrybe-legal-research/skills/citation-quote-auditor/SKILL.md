@@ -43,12 +43,31 @@ Label extracted items `[User provided]`.
 
 ### 3. Verify Through Descrybe
 
-Use Descrybe to:
+Use Descrybe in this order:
 
-- resolve each case citation where possible;
-- verify quoted language;
-- compare the case summary or relevant language against the proposition;
-- check treatment or caution signals where available.
+1. Run `extract_case_references` with `resolve: true` when available. If that
+   tool is unavailable, extract citations manually and resolve each one with
+   `find_case_from_reference`.
+2. For each unresolved, short-form, or ambiguous reference, call
+   `find_case_from_reference` with the citation or case name. Include nearby
+   draft text as `context_text`; include any quoted language as `quote_hint`.
+3. For each resolved case, preserve the Descrybe `case_id`. Do not pass reporter
+   citations, docket numbers, CourtListener IDs, or opinion IDs to known-case
+   tools that require a Descrybe `case_id`.
+4. For each quoted passage attributed to a resolved case, call `verify_quote`
+   with the `case_id` and quote. If the quote is too long or no match is found,
+   retry once with a shorter exact excerpt of about 8-25 words and report both
+   attempts.
+5. For each proposition tied to a citation, use `get_case_details`,
+   `get_case_passages`, or available summary/treatment fields to compare the
+   draft's proposition against what Descrybe actually returned.
+6. Call `check_case_status` for important resolved cases. Use
+   `find_cases_that_cite` when the user requested adverse-treatment review or
+   when Descrybe returns caution signals.
+
+If a tool returns ambiguity, `not_found`, or a request for refinement, treat that
+as an audit result. Do not silently choose a case unless Descrybe clearly
+resolves it.
 
 ### 4. Classify Each Citation
 
@@ -61,6 +80,25 @@ Classify each cited authority as:
 - citation unresolved;
 - treatment caution;
 - needs human review.
+
+Use these severity levels:
+
+- High: material quote mismatch; cited case resolves to the wrong authority; key
+  proposition is unsupported; unresolved citation is central to the draft; or
+  treatment signals could materially affect reliance.
+- Medium: partial support; overbroad parenthetical; ambiguous short cite;
+  missing pinpoint support; unclear jurisdiction or procedural posture.
+- Low: minor citation-form issue, redundant citation, or low-stakes uncertainty
+  that does not appear to change the legal point.
+
+Handle edge cases explicitly:
+
+- Multiple citations in one sentence must be assessed separately.
+- Short cites, "id.", and "supra" references require nearby context before resolution.
+- Citations appearing only in a table of authorities or heading should not count
+  as body support unless the user asks for full-document citation inventory.
+- A quote can be exact but still fail to support the proposition; report quote
+  accuracy and proposition support separately.
 
 ### 5. Produce An Audit Report
 

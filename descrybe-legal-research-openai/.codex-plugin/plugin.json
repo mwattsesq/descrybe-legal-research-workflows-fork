@@ -1,0 +1,40 @@
+{
+  "name": "descrybe-legal-research",
+  "version": "0.1.0",
+  "description": "Legal research workflows powered by Descrybe Legal Engine.",
+  "author": {
+    "name": "Descrybe",
+    "url": "https://descrybe.com"
+  },
+  "homepage": "https://descrybe.com/connect",
+  "repository": "https://github.com/descrybe-com/descrybe-legal-research-workflows",
+  "license": "Apache-2.0",
+  "keywords": [
+    "legal-research",
+    "case-law",
+    "citation-verification",
+    "mcp"
+  ],
+  "skills": "./skills/",
+  "mcpServers": "./.mcp.json",
+  "interface": {
+    "displayName": "Descrybe Legal Research",
+    "shortDescription": "Legal research workflows powered by Descrybe Legal Engine.",
+    "longDescription": "Use Descrybe Legal Engine to build research roadmaps, find supporting and adverse authority, and audit citations or quoted language.",
+    "developerName": "Descrybe",
+    "category": "Productivity",
+    "capabilities": [
+      "Read"
+    ],
+    "websiteURL": "https://descrybe.com/connect",
+    "supportURL": "https://descrybe.com/support",
+    "privacyPolicyURL": "https://descrybe.com/legal/privacy",
+    "termsOfServiceURL": "https://descrybe.com/legal/terms",
+    "defaultPrompt": [
+      "Build a Descrybe-grounded research roadmap for a legal issue.",
+      "Find supporting, limiting, and adverse authority for a legal proposition.",
+      "Audit a draft paragraph for citation support and quote accuracy."
+    ],
+    "brandColor": "#0F766E"
+  }
+}

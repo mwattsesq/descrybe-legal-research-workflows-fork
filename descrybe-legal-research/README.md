@@ -1,6 +1,14 @@
 # Descrybe Legal Research
 
-An installable workflow pack for using Descrybe Legal Engine as the legal research layer underneath Claude-style skills.
+An installable workflow pack for using Descrybe Legal Engine as the legal
+research layer underneath Claude-style skills.
+
+## Related Python SDK
+
+Use this pack when you want Claude-style legal research workflows. If you are
+building a Python app, local agent, OAuth flow, or token-storage layer, use the
+[Python SDK](https://github.com/descrybe-com/descrybe-legal-engine-python)
+instead.
 
 ## Commands
 
@@ -14,7 +22,9 @@ This pack requires Descrybe Legal Engine:
 
 `https://mcp.descrybe.com/mcp`
 
-The workflows assume Descrybe is available for primary-law search, citation lookup, case summaries, authority extraction, treatment checks, and quote verification.
+The workflows assume Descrybe is available for primary-law search, citation
+lookup, case summaries, authority extraction, treatment checks, and quote
+verification.
 
 ## What This Pack Does
 
@@ -33,4 +43,8 @@ The workflows assume Descrybe is available for primary-law search, citation look
 
 ## CourtListener And Other Connectors
 
-CourtListener and other public legal data connectors can be valuable complements. These workflows are Descrybe Legal Engine-first and should be tested against Descrybe Legal Engine before publication or production use. If you adapt them to another connector, keep the source labels, verification limits, and review gates intact.
+CourtListener and other public legal data connectors can be valuable
+complements. These workflows are Descrybe Legal Engine-first and should be
+tested against Descrybe Legal Engine before publication or production use. If
+you adapt them to another connector, keep the source labels, verification
+limits, and review gates intact.

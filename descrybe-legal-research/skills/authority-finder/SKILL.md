@@ -34,7 +34,12 @@ If needed, ask up to three clarifying questions.
 
 ### 2. Search With Descrybe
 
-If the proposition is framed as a specific legal issue, doctrine, or rule, start with Descrybe's case concept search using `search_focus: "legal_issue"`. Use ordinary concept searches for narrower fact-specific variants, opposing formulations, and broader doctrine-level checks.
+If the proposition is framed as a specific legal issue, doctrine, or rule, start
+with Descrybe's case concept search using `search_focus: "legal_issue"`. If the
+tool rejects or does not support `search_focus`, rerun the same search as an
+ordinary concept search and note the fallback. Use ordinary concept searches for
+narrower fact-specific variants, opposing formulations, and broader
+doctrine-level checks.
 
 Run Descrybe searches for:
 
@@ -43,6 +48,11 @@ Run Descrybe searches for:
 - likely opposing formulations;
 - narrower fact-specific variants;
 - broader doctrine-level variants.
+
+Unless the user explicitly asks for supporting authority only, run at least one
+search designed to surface limiting, distinguishing, or adverse cases. If the
+user asks for supporting authority only, say that the result is not a full
+adverse-authority review.
 
 ### 3. Classify Results
 
@@ -68,6 +78,18 @@ For each important case, include:
 - why it matters;
 - treatment or caution notes if available;
 - confidence level: high, medium, or low.
+
+Use this confidence rubric:
+
+- High: Descrybe resolves the case, the court/jurisdiction fit the requested
+  scope, the case directly supports or rejects the narrow proposition, and no
+  visible treatment signal undermines the use described.
+- Medium: the case is relevant but depends on factual fit, procedural posture,
+  court level, dated authority, or treatment that should be reviewed before
+  reliance.
+- Low: the result is summary-only, jurisdiction is uncertain, the match is
+  indirect, treatment is unclear, or Descrybe did not resolve enough detail to
+  characterize the case safely.
 
 ## Output Format
 

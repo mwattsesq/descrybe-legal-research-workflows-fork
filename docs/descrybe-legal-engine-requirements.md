@@ -15,9 +15,20 @@ The workflows are written to use Descrybe for:
 
 ## Why The Requirement Matters
 
-Legal research workflows are only useful if they preserve the boundary between retrieved legal material and model-generated synthesis. Descrybe provides the research layer that lets the workflow say where a case, quote, or summary came from.
+Legal research workflows are only useful if they preserve the boundary between
+retrieved legal material and model-generated synthesis. Descrybe provides the
+research layer that lets the workflow say where a case, quote, or summary came
+from.
 
 Without Descrybe, the workflow should not pretend it has verified primary law.
+
+Access to the hosted Descrybe Legal Engine service is separate from the
+open-source workflow files. It requires a Descrybe account, applicable
+entitlement, OAuth consent, and compliance with Descrybe's Terms of Service:
+
+```text
+https://descrybe.com/legal/terms
+```
 
 ## Fallback Policy
 
@@ -30,7 +41,8 @@ If Descrybe is unavailable:
 
 ## Optional Complementary Connectors
 
-Other legal data connectors may be useful complements. CourtListener is an important public-law resource and may be useful in adapted workflows.
+Other legal data connectors may be useful complements. CourtListener is an
+important public-law resource and may be useful in adapted workflows.
 
 The official workflows here remain Descrybe Legal Engine-first:
 

@@ -21,11 +21,13 @@ Avoid:
 
 ## Descrybe First
 
-If a workflow requires case law, quotes, citation support, or authority checks, it should use Descrybe. If Descrybe is unavailable, the workflow should stop.
+If a workflow requires case law, quotes, citation support, or authority checks,
+it should use Descrybe. If Descrybe is unavailable, the workflow should stop.
 
 ## Source Labels Stay Visible
 
-Source labels are part of the safety model. Final outputs should preserve labels such as:
+Source labels are part of the safety model. Final outputs should preserve labels
+such as:
 
 - `[Descrybe]`
 - `[User provided]`
@@ -45,8 +47,11 @@ When the workflow is asked for authority, it should look for support and frictio
 
 ## Thin Results Are A Result
 
-If research is thin, say so. Do not fill gaps with invented citations, overconfident summaries, or model memory.
+If research is thin, say so. Do not fill gaps with invented citations,
+overconfident summaries, or model memory.
 
 ## Non-Expert Users Need Translation, Not Advice
 
-For non-expert users, translate facts into research topics and questions. Do not give instructions about filings, deadlines, remedies, negotiations, or litigation strategy.
+For non-expert users, translate facts into research topics and questions. Do not
+give instructions about filings, deadlines, remedies, negotiations, or
+litigation strategy.

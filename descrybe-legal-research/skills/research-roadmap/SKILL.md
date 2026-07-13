@@ -35,7 +35,12 @@ If the user cannot answer, continue with explicit assumptions.
 
 Create targeted Descrybe search concepts from the user's plain-English issue.
 
-When the user supplies a specific legal issue, doctrine, rule, or issue label, use Descrybe's case concept search with `search_focus: "legal_issue"` for the first selected-issue search. Use ordinary concept searches for broader fact patterns, opposing formulations, and follow-up variants.
+When the user supplies a specific legal issue, doctrine, rule, or issue label,
+use Descrybe's case concept search with `search_focus: "legal_issue"` for the
+first selected-issue search. If the tool rejects or does not support
+`search_focus`, rerun the same search as an ordinary concept search and note the
+fallback. Use ordinary concept searches for broader fact patterns, opposing
+formulations, and follow-up variants.
 
 For each search, record:
 
