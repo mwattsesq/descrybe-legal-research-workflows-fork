@@ -13,6 +13,9 @@ The workflows are written to use Descrybe for:
 - treatment or authority checks where available;
 - quoted-language verification.
 
+For public tool names and baseline parameters, see
+[descrybe-legal-engine-tools.md](descrybe-legal-engine-tools.md).
+
 ## Why The Requirement Matters
 
 Legal research workflows are only useful if they preserve the boundary between

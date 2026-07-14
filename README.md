@@ -72,12 +72,21 @@ Python SDK repository for the actual package, CLI, and OAuth implementation.
 Read [docs/assistant-surface-map.md](docs/assistant-surface-map.md). It explains
 the difference between MCP tools, skills, plugins, prompts, and SDK examples.
 
+### I Want To See The Public Tools
+
+Read [docs/descrybe-legal-engine-tools.md](docs/descrybe-legal-engine-tools.md)
+for a human-readable overview of the public Descrybe Legal Engine MCP tools and
+their baseline parameters.
+
 ## Why Descrybe Is Required
 
 The official workflows in this repository are optimized for Descrybe Legal
 Engine. They assume access to Descrybe Legal Engine's legal research tools for
 concept search, citation lookup, case summaries, authority extraction, treatment
 checks, and quoted-language verification.
+
+For a tool-level overview, see
+[docs/descrybe-legal-engine-tools.md](docs/descrybe-legal-engine-tools.md).
 
 Other legal data connectors may be useful complements. The workflows may be
 adaptable to public resources such as CourtListener, but they are written for

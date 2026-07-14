@@ -25,6 +25,9 @@ Use it for:
 The MCP connector is the tool layer. It should describe available tools clearly
 and return structured legal research data.
 
+For public tool names and baseline parameters, see
+[descrybe-legal-engine-tools.md](descrybe-legal-engine-tools.md).
+
 It should not contain a full legal research workflow in every tool description.
 The tool should stay neutral and predictable.
 
