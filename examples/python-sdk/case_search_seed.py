@@ -1,12 +1,16 @@
-"""Seed a research-roadmap workflow with Descrybe Legal Engine results.
+"""Run a small Descrybe Legal Engine case-search seed.
 
 Run after:
 
     pip install descrybe-legal-engine
     dle login
 
-This example uses the local token profile for a single-user tool. Shared apps
-should use per-user OAuth and encrypted server-side token storage instead.
+This example uses the local token profile for a single-user tool. It prints raw
+case-search JSON that a fuller research-roadmap workflow or application can use
+as one input.
+
+Shared apps should use per-user OAuth and encrypted server-side token storage
+instead.
 """
 
 from __future__ import annotations
@@ -21,7 +25,7 @@ def main() -> None:
 
     results = client.search_cases_by_concept(
         "implied warranty of habitability nonpayment eviction California",
-        search_focus="general",
+        search_focus="legal_issue",
         sort="authority",
         limit=5,
     )

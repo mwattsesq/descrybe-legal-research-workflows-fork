@@ -35,8 +35,8 @@ complete verified case-law research from model memory.
   Descrybe-grounded research plan.
 - `authority-finder` - finds supporting, limiting, distinguishing, and adverse
   authority.
-- `citation-quote-auditor` - audits citations, quoted language, and
-  citation-support issues.
+- `citation-quote-auditor` - audits case citations, quoted case language, and
+  case-support issues.
 
 ## First Test Prompts
 
@@ -51,7 +51,8 @@ cases on habitability defects as a defense to nonpayment of rent.
 ```
 
 ```text
-Use Descrybe Legal Research to audit this draft paragraph for citation support:
+Use Descrybe Legal Research to audit this draft paragraph for case-citation
+support:
 
 Under California law, habitability obligations and rent obligations are mutually
 dependent. Green v. Superior Court, 10 Cal. 3d 616 (1974).
@@ -61,4 +62,5 @@ dependent. Green v. Superior Court, 10 Cal. 3d 616 (1974).
 
 This pack supports legal research. It does not provide legal advice, make legal
 conclusions for the user, replace attorney review, or guarantee that research is
-complete.
+complete. The citation auditor is scoped to case citations and quoted case
+language unless a separate workflow says otherwise.

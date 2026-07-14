@@ -28,8 +28,9 @@ change a workflow's research logic, update the corresponding skill in each
 official pack unless the difference is intentionally platform-specific.
 
 Platform-specific wording is fine. The research semantics should stay aligned:
-required Descrybe checks, tool fallbacks, source labels, confidence rubrics,
-legal-advice boundaries, and human-review warnings should not drift silently.
+required Descrybe checks, tool fallbacks, source labels, authority-weight and
+reliance dimensions, legal-advice boundaries, and human-review warnings should
+not drift silently.
 
 ## Style
 
@@ -37,3 +38,15 @@ legal-advice boundaries, and human-review warnings should not drift silently.
 - Keep workflow steps auditable.
 - Prefer narrow, testable workflows over broad legal-assistant behavior.
 - Do not include secrets, private customer data, or privileged materials.
+
+## Lightweight Validation
+
+Before submitting workflow changes, run:
+
+```bash
+python3 scripts/validate_workflows.py
+```
+
+The validator checks JSON, local Markdown links, skill metadata, Claude/OpenAI
+MCP config shape, required safety language, cross-pack workflow guardrails, and
+the Python SDK example rename. It does not call live Descrybe services.

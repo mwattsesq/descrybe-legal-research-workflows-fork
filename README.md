@@ -11,8 +11,8 @@ The goal is simple: help users move from a legal question, citation, draft, or
 research problem into grounded case-law research with clear source boundaries.
 
 These workflows do not provide legal advice. They help structure legal
-research, surface cases, verify quoted language, audit citations, and identify
-gaps for a human reviewer.
+research, surface cases, verify quoted case language, audit case citations, and
+identify gaps for a human reviewer.
 
 ## How This Repo Fits With The Python SDK
 
@@ -40,8 +40,8 @@ In short:
   issue into a Descrybe-grounded research plan.
 - `descrybe-legal-research/skills/authority-finder/` - finds and organizes
   cases supporting, limiting, or rejecting a legal proposition.
-- `descrybe-legal-research/skills/citation-quote-auditor/` - reviews citations
-  and quoted language in a draft.
+- `descrybe-legal-research/skills/citation-quote-auditor/` - reviews case
+  citations and quoted case language in a draft.
 - `docs/` - setup, connector requirements, surface guidance, and workflow
   design principles.
 - `examples/` - sample prompts, expected output shapes, and lightweight Python
@@ -113,8 +113,8 @@ defense to nonpayment of rent."
 
 ### Citation and Quote Auditor
 
-Use when a user has a draft, memo, argument, or passage with citations and
-quoted language that needs verification.
+Use when a user has a draft, memo, argument, or passage with case citations and
+quoted case language that needs verification.
 
 Example: "Audit this draft paragraph and tell me whether the cited cases
 actually support the propositions."
@@ -127,10 +127,13 @@ conclusion, and not a substitute for professional judgment.
 Every output should:
 
 - identify jurisdiction assumptions;
+- include a research-current-through date when reporting research results;
 - separate verified Descrybe results from user-provided material and model
   reasoning;
 - flag missing facts and thin research;
 - avoid telling a person what legal action to take;
+- tell users to confirm authorization before submitting client, matter, or
+  confidential material;
 - recommend review by a qualified attorney before use in legal work.
 
 ## Service Access

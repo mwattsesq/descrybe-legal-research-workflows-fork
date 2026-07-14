@@ -23,6 +23,10 @@ Use the Python SDK instead when you are building your own app or script.
 - `skills/*/SKILL.md` - reusable workflow instructions;
 - `README.md` - local testing notes and expected behavior.
 
+The OpenAI-oriented `.mcp.json` uses the documented plugin bundle shape with a
+wrapped `mcp_servers` object. The Claude pack keeps Claude's `mcpServers`
+wrapper.
+
 ## Local Marketplace Shape
 
 This repository includes a repo-local marketplace file:
@@ -82,8 +86,8 @@ authority for habitability defects as a defense to nonpayment of rent.
 ```
 
 ```text
-Use Descrybe Legal Research to audit this draft paragraph for citation support
-and quote accuracy:
+Use Descrybe Legal Research to audit this draft paragraph for case-citation
+support and quote accuracy:
 
 Under California law, habitability obligations and rent obligations are mutually
 dependent. Green v. Superior Court, 10 Cal. 3d 616 (1974).
@@ -113,6 +117,8 @@ Before submission, also confirm:
 
 - the manifest has live website, support, privacy, and terms URLs;
 - the MCP server uses the production Descrybe Legal Engine URL;
+- the OpenAI `.mcp.json` keeps the `mcp_servers.descrybe-legal-engine` server
+  key and production URL;
 - the skills have been tested with connected and disconnected Descrybe states;
 - positive and negative test cases include expected behavior, not only prompt
   text.

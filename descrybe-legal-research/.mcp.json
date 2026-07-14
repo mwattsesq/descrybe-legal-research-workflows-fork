@@ -1,6 +1,6 @@
 {
   "mcpServers": {
-    "Descrybe Legal Engine": {
+    "descrybe-legal-engine": {
       "type": "http",
       "url": "https://mcp.descrybe.com/mcp",
       "title": "Descrybe Legal Engine",

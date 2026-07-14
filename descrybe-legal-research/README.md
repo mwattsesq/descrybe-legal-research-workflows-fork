@@ -30,7 +30,7 @@ verification.
 
 - turns plain-English legal problems into research questions;
 - finds cases that support, distinguish, limit, or reject a proposition;
-- verifies quoted language and citation support in drafts;
+- verifies quoted case language and case-citation support in drafts;
 - keeps research outputs source-labeled and review-ready.
 
 ## What This Pack Does Not Do
@@ -39,6 +39,8 @@ verification.
 - make legal conclusions for the user;
 - replace a lawyer, legal clinic, professor, or supervising attorney;
 - guarantee that research is complete;
+- audit statutes, regulations, record citations, or secondary sources unless a
+  workflow explicitly says it does;
 - tell non-expert users what legal action to take.
 
 ## CourtListener And Other Connectors

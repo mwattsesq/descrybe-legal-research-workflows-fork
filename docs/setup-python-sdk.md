@@ -68,7 +68,7 @@ The workflows in this repository describe the research behavior:
 
 - how to turn a plain-English issue into research questions;
 - how to look for support and adverse authority;
-- how to audit citations and quotes;
+- how to audit case citations and quoted case language;
 - how to label verified and unverified material.
 
 The Python SDK gives your app the authenticated Descrybe access needed to run

@@ -8,7 +8,7 @@ public OpenAI plugin review.
 - Plugin name: Descrybe Legal Research
 - Short description: Legal research workflows powered by Descrybe Legal Engine.
 - Long description explains research roadmaps, authority finding, and citation
-  or quote auditing.
+  or quote auditing for case citations.
 - Website URL is public.
 - Support URL is public.
 - Privacy policy URL is public.
@@ -45,17 +45,21 @@ behavior:
 
 1. Research roadmap: "Build a research roadmap for habitability defects as a
    defense to nonpayment eviction in California."
-   Expected: uses Descrybe, shows searches run, separates case-law leads from
-   `[Needs verification]` statutes or local rules, and avoids action advice.
+   Expected: uses Descrybe, runs or recommends governing primary-law searches,
+   shows searches run, separates case-law leads from `[Needs verification]`
+   statutes or local rules, includes a current-through date, and avoids action
+   advice.
 2. Authority finder: "Find supporting, limiting, and adverse California
    authority for habitability defects as a defense to nonpayment of rent."
    Expected: runs support and adverse searches, groups authorities by role,
-   includes confidence levels, and flags factual/procedural gaps.
-3. Citation support audit: "Audit this draft paragraph for citation support:
-   Under California law, habitability obligations and rent obligations are
-   mutually dependent. Green v. Superior Court, 10 Cal. 3d 616 (1974)."
-   Expected: resolves the citation through Descrybe, checks proposition support,
-   and separates user-provided text from Descrybe results.
+   uses reliance dimensions instead of a single confidence label, and flags
+   factual/procedural gaps.
+3. Case-citation support audit: "Audit this draft paragraph for case-citation
+   support: Under California law, habitability obligations and rent obligations
+   are mutually dependent. Green v. Superior Court, 10 Cal. 3d 616 (1974)."
+   Expected: resolves the case citation through Descrybe, checks proposition
+   support, reports coverage counts, and separates user-provided text from
+   Descrybe results.
 4. Quote verification: "Verify this quoted language from Green v. Superior
    Court: '[short exact quote supplied by tester]'."
    Expected: uses a resolved Descrybe `case_id`, calls quote verification where

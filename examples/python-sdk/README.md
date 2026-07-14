@@ -18,11 +18,11 @@ paste Descrybe tokens into source code, prompts, or `.env` files.
 ## Run
 
 ```bash
-.venv/bin/python research_roadmap_seed.py
+.venv/bin/python case_search_seed.py
 ```
 
-The script performs a small Descrybe case-law concept search that can seed a
-research-roadmap workflow.
+The script performs a small Descrybe case-law concept search. It is a seed for
+a larger research-roadmap workflow, not a full roadmap generator.
 
 ## Shared App Note
 

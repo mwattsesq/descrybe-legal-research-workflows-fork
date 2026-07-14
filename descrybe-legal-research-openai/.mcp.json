@@ -1,16 +1,8 @@
 {
-  "mcpServers": {
-    "Descrybe Legal Engine": {
+  "mcp_servers": {
+    "descrybe-legal-engine": {
       "type": "http",
-      "url": "https://mcp.descrybe.com/mcp",
-      "title": "Descrybe Legal Engine",
-      "description": "Legal research with primary-law search, case lookup, case summaries, authority extraction, treatment checks, and quoted-language verification."
+      "url": "https://mcp.descrybe.com/mcp"
     }
-  },
-  "recommendedCategories": [
-    "legal-research",
-    "case-law",
-    "citation-verification",
-    "documents"
-  ]
+  }
 }

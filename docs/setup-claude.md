@@ -25,6 +25,9 @@ It contains:
 - `CLAUDE.md` - shared research profile and safety boundaries;
 - `skills/*/SKILL.md` - workflow instructions.
 
+The Claude `.mcp.json` uses Claude's `mcpServers` wrapper and the stable server
+key `descrybe-legal-engine`.
+
 ## Connector Setup
 
 Add Descrybe Legal Engine as a remote MCP connector:
@@ -60,7 +63,8 @@ Try these after Descrybe Legal Engine is available:
 
 - `/descrybe-legal-research:research-roadmap "habitability defense to nonpayment eviction in California"`
 - `/descrybe-legal-research:authority-finder "California cases supporting habitability defects as a defense to nonpayment of rent"`
-- `/descrybe-legal-research:citation-quote-auditor` with a short memo excerpt that includes citations and quotes.
+- `/descrybe-legal-research:citation-quote-auditor` with a short memo excerpt
+  that includes case citations and quoted case language.
 
 ## Expected Behavior
 
