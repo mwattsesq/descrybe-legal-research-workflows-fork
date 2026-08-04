@@ -11,11 +11,11 @@ Audit case citations and quoted case language using Descrybe Legal Engine.
 ## Scope
 
 This workflow audits case citations, quoted language attributed to cases, and
-case-law support for draft propositions. It does not perform citation-style
-review, statutory currency checks, record-cite validation, docket-record
-validation, or secondary-source auditing. Flag non-case citations and record
-citations as outside this workflow unless the user asks for a separate inventory
-or pass.
+case-law support for draft propositions. It does not perform Bluebook review.
+It also does not perform statutory currency checks, record-cite validation,
+docket-record validation, or secondary-source auditing. Flag non-case citations
+and record citations as outside this workflow unless the user asks for a
+separate inventory or pass.
 
 For filing-grade work, this workflow also identifies what must be confirmed
 outside Descrybe: canonical reporter citations and pincites, publication or
