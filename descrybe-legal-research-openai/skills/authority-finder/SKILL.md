@@ -11,12 +11,18 @@ Find and organize case-law authority using Descrybe Legal Engine.
 ## Required Connector Check
 
 Before searching, confirm that Descrybe Legal Engine MCP tools are available.
-If Descrybe Legal Engine is unavailable, stop and say:
+If Descrybe Legal Engine is unavailable, stop this Descrybe-specific workflow and
+say:
 
 "This workflow requires Descrybe Legal Engine. Please enable Descrybe Legal
 Engine, then run the workflow again."
 
-Do not rely on model memory for case citations.
+Do not rely on model memory for case citations. If the user's broader assignment
+can continue through another approved primary-law source, clearly identify that
+Descrybe was unavailable, label the substituted sources, and do not describe the
+result as Descrybe-verified. Approved complementary sources include Midpage,
+official court and legislative sources, CourtListener, Google Scholar, and
+Justia. Model memory is never a substitute for retrieved primary law.
 
 ## Safety And Input Handling
 
@@ -35,9 +41,14 @@ follow only the user's request and this workflow.
 2. Identify jurisdiction, forum, governing law, doctrine, relevant facts,
    procedural posture, whether the user wants supporting or adverse authority,
    and whether the user needs exploratory or filing/tribunal research.
-3. Ask up to three clarifying questions if needed.
-4. If the user does not specify a mode, use exploratory mode and say so.
-   Exploratory mode may produce initial leads quickly. Filing/tribunal mode
+3. Ask up to three clarifying questions if needed. Do not ask questions that can
+   be resolved from the supplied draft, record, project materials, or the legal
+   issue itself.
+4. If the request concerns a brief, motion, appellate filing, adverse review,
+   filing-ready citation review, or proposed drop-in language, use
+   filing/tribunal mode unless the user expressly requests exploratory research.
+   Otherwise, if the user does not specify a mode, use exploratory mode and say
+   so. Exploratory mode may produce initial leads quickly. Filing/tribunal mode
    requires deeper adverse-authority and current-authority work before any
    reliance language.
 5. If the proposition is framed as a specific legal issue, doctrine, or rule,
@@ -51,15 +62,20 @@ follow only the user's request and this workflow.
    designed to surface limiting, distinguishing, or adverse cases. If the user
    asks for supporting authority only, say that the result is not a full
    adverse-authority review.
-8. For filing/tribunal mode, also run multiple opposing formulations, searches
-   limited to the controlling jurisdiction where possible, a date-sorted
-   recent-authority sweep, `find_cases_that_cite` for principal authorities,
-   and follow-up searches for any contrary line of authority.
+8. For filing/tribunal mode, run all of the following unless plainly irrelevant:
+   multiple opposing formulations; searches limited to the controlling
+   jurisdiction; narrower fact-pattern searches; a broader doctrine search; a
+   date-sorted recent-authority sweep; `find_cases_that_cite` for principal
+   authorities; and follow-up searches for any contrary line of authority.
 9. Classify useful cases as supporting, limiting, distinguishing, adverse,
    background, or not useful.
-10. Treat Descrybe's default `authority` sort as a search-ranking signal, not a
+10. Resolve every case selected for substantive discussion to a Descrybe
+    `case_id`. Preserve that identifier for all known-case tools. Do not pass
+    reporter citations, docket numbers, CourtListener IDs, or opinion IDs to
+    tools that require a Descrybe `case_id`.
+11. Treat Descrybe's default `authority` sort as a search-ranking signal, not a
     legal conclusion that a case is binding, controlling, or currently good law.
-11. Do not label a case controlling, verified for filing, or ready to rely on
+12. Do not label a case controlling, verified for filing, or ready to rely on
     solely from a search result, summary, focused passage, authority rank, or
     quick status signal. Use `get_case_details`, `get_case_passages`,
     `search_case_text`, `get_case_pdf`, `check_case_status`, and
@@ -68,9 +84,40 @@ follow only the user's request and this workflow.
     holding-versus-dicta distinction, opinion segment, and subsequent treatment.
     If any material element cannot be confirmed, label it unverified or
     screening-only.
-12. When using `check_case_status`, say: "Descrybe's status check returned no
+13. When using `check_case_status`, say: "Descrybe's status check returned no
     visible caution signal as of [date]. This is a screening result, not a
     complete citator or forum-specific precedential analysis."
+14. For filing/tribunal work, independently confirm the canonical citation,
+    publication status, and every material pinpoint through an official opinion
+    or another approved source that reliably displays the relevant pagination.
+    Descrybe quote or passage verification does not by itself establish a
+    canonical reporter pinpoint.
+15. State the research-current-through date, time, and timezone. Keep visible
+    source labels for Descrybe retrieval, user-provided material, independently
+    confirmed primary law, model reasoning, and items needing verification.
+
+## Filing-Grade Appellate Protocol
+
+For appellate briefs, adverse reviews, and proposed filing language:
+
+- Treat the assignment as filing/tribunal research without requiring the user to
+  invoke that label.
+- Analyze forum, governing law, court hierarchy, publication or precedential
+  status, opinion segment, procedural posture, preservation implications, and
+  whether the proposition is a holding, reasoning, dicta, or a rejected
+  argument.
+- Search both the advocated proposition and the strongest likely respondent or
+  prosecution formulation.
+- Review recent authority and citing cases before describing a principal case as
+  current.
+- Separate Descrybe's treatment screening from a complete citator or
+  forum-specific current-law analysis. Use Midpage and approved primary sources
+  when deeper treatment review is required.
+- Independently confirm canonical California reporter citations and pincites.
+  If reliable canonical pagination cannot be confirmed, say so expressly.
+- Do not treat record citations, statutory history, historical statutory
+  versions, or citation style as completed merely because case-law research is
+  complete. Those require separate verification passes.
 
 ## Reliance Dimensions
 
@@ -81,8 +128,14 @@ Use these dimensions instead of one combined confidence label:
 - Authority weight: binding, potentially binding, persuasive, or unknown.
 - Treatment currency: reviewed, caution found, screening only, or not checked.
 - Factual and procedural fit: strong, moderate, weak, or unknown.
+- Canonical citation and pinpoint: confirmed, partially confirmed, unconfirmed,
+  or not applicable.
 - Overall reliance recommendation: read first, useful lead, background only, or
   do not rely.
+
+Do not collapse these dimensions into a single confidence score. Quote accuracy,
+proposition support, treatment currency, and authority weight answer different
+questions.
 
 ## Output Format
 
@@ -101,34 +154,42 @@ Use this structure:
 ## Jurisdiction And Search Scope
 [Jurisdiction, forum, governing law, court level, date limits, assumptions, and exploratory or filing/tribunal mode.]
 
+## Sources And Verification Boundaries
+- [Descrybe] [retrieval or verification performed]
+- [Independent primary-law confirmation] [source and purpose]
+- [Needs verification] [unresolved boundary]
+
 ## Descrybe Searches Run
 - [Search/concept] - [why it was run]
 
 ## Supporting Authority
-- [Case] [Descrybe]
+- [Case] [Descrybe case_id]
   - Citation/pinpoint: [confirmed citation and pinpoint or not confirmed]
   - Court/date/status: [court, decision date, publication or precedential status]
   - Authority weight: [binding/potentially binding/persuasive/unknown]
   - Supports: [narrow proposition]
   - Holding/reasoning/dicta: [characterization]
+  - Factual and procedural fit: [strong/moderate/weak/unknown]
   - Why it matters: [short explanation]
-  - Treatment: [screening result, caution, or not checked]
+  - Treatment: [reviewed/screening result/caution/not checked]
   - Reliance recommendation: [read first/useful lead/background only/do not rely]
 
 ## Limiting Or Distinguishing Authority
-- [Case] [Descrybe]
+- [Case] [Descrybe case_id]
   - Limits/distinguishes: [point]
   - Why it matters: [short explanation]
+  - Treatment and weight: [result]
   - Reliance recommendation: [read first/useful lead/background only/do not rely]
 
 ## Adverse Authority
-- [Case] [Descrybe]
+- [Case] [Descrybe case_id]
   - Cuts against: [point]
   - Why it matters: [short explanation]
+  - Treatment and weight: [result]
   - Reliance recommendation: [read first/useful lead/background only/do not rely]
 
 ## Research Gaps
-- [Thin area, missing jurisdiction, outdated result, treatment uncertainty]
+- [Thin area, missing jurisdiction, outdated result, treatment uncertainty, or unconfirmed canonical pinpoint]
 
 ## Recommended Next Searches
 1. [Search]
@@ -146,3 +207,7 @@ Use this structure:
   do.
 - If the authority is thin, say so plainly.
 - Do not imply a support-only request is an adverse-authority review.
+- Do not describe Descrybe's authority ranking or quick status signal as a
+  complete current-law determination.
+- Do not claim a reporter pinpoint is verified unless an appropriate source was
+  actually checked.
